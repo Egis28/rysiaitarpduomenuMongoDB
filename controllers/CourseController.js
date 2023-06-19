@@ -24,6 +24,16 @@ const createNewCourse = async (req, res)=> {
     res.status(200).send(result);
     
     }
+
+    const getAllCourses = async (req, res) =>{
+        const result = await Course
+        .find()
+        .populate('author')
+        res.send(result);
+    }
+
+
     module.exports = {
-        createNewCourse
+        createNewCourse,
+        getAllCourses
     }

@@ -9,7 +9,7 @@ app.use(express.json());
 const {createNewAuthor, getAllAuthors, getAuthorById } = require ('./controllers/AuthorController');
 
 const {
-    createNewCourse,
+    createNewCourse, getAllCourses
 
 } = require ('./controllers/CourseController');
 
@@ -18,6 +18,7 @@ app.get('/api/authors', getAllAuthors);
 app.get('/api/author/:id', getAuthorById);
 
 app.post('/api/course', createNewCourse);
+app.get('/api/courses', getAllCourses);
 
 app.listen(process.env.PORT, () => {
 
