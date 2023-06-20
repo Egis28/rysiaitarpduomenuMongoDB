@@ -6,19 +6,19 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
-const {createNewAuthor, getAllAuthors, getAuthorById } = require ('./controllers/AuthorController');
+const {createUser, getAllUsers, getUserById } = require ('./controllers/UserController');
 
-const {
-    createNewCourse, getAllCourses
+const { createAd, getAdsByUser, updateAd, deletAd } = require ('./controllers/AdController');
+ 
 
-} = require ('./controllers/CourseController');
+app.post('/api/user', createUser);
+app.get('/api/users', getAllUsers);
+app.get('/api/user/:id', getUserById);
 
-app.post('/api/author', createNewAuthor);
-app.get('/api/authors', getAllAuthors);
-app.get('/api/author/:id', getAuthorById);
-
-app.post('/api/course', createNewCourse);
-app.get('/api/courses', getAllCourses);
+app.post('/api/ad', createAd);
+app.get('/api/ads', getAdsByUser);
+app.put('/api/ads', updateAd);
+app.delete('/api/ads', deletAd);
 
 app.listen(process.env.PORT, () => {
 
